@@ -1,0 +1,22 @@
+body{
+margin:0;
+padding:0;
+overflow-x: hidden;
+background-image: url('Kbaggrund%202.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed;
+  background-size: cover;
+}
+.header{
+  text-align: left;
+padding:10px;
+  background: rgba(23,22,29,255);
+  height: 350px;
+    color: black;
+}
+hr{
+color:rgb(255,255,255);
+position:relative;
+top:-250px;
+width:90%
+} 
