@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="myStyle.css">
+</head>
+<body> 
+
+<ul>
+ <li><a class="active" href="IndexW.html">Webteknologi</a></li>
+  <li><a href="Indexp.html">Om mig</a></li>
+  <li><a href="IndexAP.html">AstroPi</a></li>
+<li><a href="indexIS.html">IT-sikkerhed</a></li>
+    <li><a href="index.html">Hjem</a></li>
+    <li><a href="indexSL.html">Spil og Leg</a></li> 
+    <li><a href="indexDB.html">Databaser</a></li>
+    
+</ul>
+<div class="header">
+    <h1>Webteknologi</h1> </div>  
+    <div class="box3">
+    <h4>Introduktion</h4>
+<p2>Internettet er et forunderligt sted og er i dag den dominerende teknologi til deling af information. Man kan selvfølgelig finde andre finurlige ting på internettet end almen information som eks. spil. <br> I dette forløb har vi fokuseret på opbygningen af hjemmesider for til sidst at ende ud med en brugbar hjemmeside.</p2>
+
+<h4>Head-tag og dens indhold</h4>
+<p2>Den første linje kode, som bliver brugt efter &lthtml&gt er tagget &lthead&gt.  Dette tag runner baggrundskoden for min hjemmeside. I dette tilfælde koden &ltmeta charset="UTF-8"&gt og &ltlink rel="stylesheet" href="myStyle.css"&gt  &lthead&gt lukkes af med et closing tag: &lt/head&gt for, at den resterende kode kan kører. <br>
+Lad os kigge på den første kode inde i &lthead&gt. &ltmeta charset="UTF-8"&gt, denne kode gør det muligt for programmører og kodere at bruge special tegn som æ, ø og å på deres hjemmesider. Den næste kode er &ltlink rel="stylesheet" href="myStyle.css"&gt. Her linker jeg til mit mystyle som er det jeg bruger til at designe min hjemmeside. </p2>
+</div>
+<div class="img4"><img src="html-head.jpg" width="650"></div>
+<div class="box9"> 
+<h4>CSS kode</h4>
+<p2> I denne boks vil jeg gå i dybden med den CSS kode jeg har brugt til min mystyle fil. <br> Men først, hvad er CSS kode? <br> CSS står for Cascading Style Sheets og er den kode som bruges til at styre udseendet på en hjemmeside.</p2>
+<h4>Kasser</h4> 
+<p2>De kasser båede CSS og HTML koden står forklaret indeholder en masse forskellige information. Før kassen kan sættes ind på ens hjemmeside giver man den de rette dimensioner og layout, alt dette gøres i CSS.<br> kasse 1's kode ser således ud: <br>
+div.box1 {<br>
+  width: 650px;<br>
+  border: 2px solid #123C69;<br>
+  padding: 15px; <br>
+  margin: 20px; <br>
+background-color: #EEE2DC;<br>
+    position: fixed;<br>
+    top: 225px;<br>
+    right: -10px;} <br><br>
+div.box1 gør det muligt senere hen at kalde på kassen ved hjælp af tagget &ltdiv class="box1"&gt. Mellem krølleparantserne {} skrives det layout man ønsker kassen skal havde. <br> Width sætter bredden på kassen, border indeholder båede informationen om hvor tyk kanten udenom kassen skal være (2px), hvordan kanten skal se ud (solid) samt farven på outlinen(#123C69).<br> Kassen vil naturligt placere sig oppe mod venstre hjørne hvis man ikke manuelt giver den en plads. Dette er her gjort ved hjælp af position: fixed; som sætter kassens position til altid at være det samme.
+</p2>
+</div>
+
+<div class="box10"> 
+<h4>Menu bar</h4>
+<p2>Oppe i højre hjørne af min hjemmeside finder man en lille menubar som gør det muligt at <br> navigere rundt på de forskellige undersider. Den er lavet ved hjælp af både CSS men også almendelig HTML kodning. <br> I min CSS fil har jeg defineret en "ul" som er der selve listen laves efterfulgt af "li" li a" og "li a:hover" <br> ul koden: <br>ul{<br>  list-style-type: none; <br>
+  margin: 0;<br>
+  padding: 0;<br>
+  overflow: hidden;<br>
+  background-color:rgb(15,35,54); }<br> "List-style-type" er en funktion som gør det muligt at bruge forskellige stile til sin manubar, eks kunne den være lodret i stedet for vandret eller knapperne kunne være cirkler. "Margin" og "padding" er her sat til nul for ikke at have underlige linje afstande mellem knapperne, "overflow: hidden" er så man ikke kan scrolle i selve menubaren og det sidste "background-color:rgb(15,35,54);" giver farven på hele menu linje<br><br> li koderne har forskellige funktioner, den første "li" indeholder positionen og gør at hele menubaren "floater" i højre hjørne. "li a" giver det simple layout til de forskellige knapper, ville man have forskelligt for hvert knap kunne man lave en "li b" og en "li c". <br> Tilsidst er der "li a:hover" Denne gør at når brugeren holder musen henover knappen så skifter den farve.<br> <br> Nu er vi nået til indsætningen af selve menubaren. Dette gøres ved hjælp af følgende kode:
+&ltul&gt <br>
+  &ltli&gt&lta class="active" href="Indexp.html"&gtOm mig&lt/a&gt&lt/li&gt <br>
+  &ltli&gt&lta href="index.html"&gtHjem&lt/a&gt&lt/li&gt<br>
+  &ltli&gt&lta href="#indexa.html"&gtAstroPi&lt/a&gt&lt/li&gt<br>
+    &ltul&gt <br>
+Først og fremmest kalder vi på den funktion vi lavede "ul". Derefter bruger vi li a funktionerne til at kalde på de forskellige hjemmesider der skal linkes til. Dette gøres ved hjælp af class="active" som kalder på alle de aktive sider man har. Derefter referer man til den fil der skal linkes til og giver den et navn. Dette gentager man for alle sider man skal have linket til. Ville man have knapper i forskellige farver kunne man her havde lavet en "li b" og erstattet b med a's plads i koden.
+
+    
+    </p2>
+
+</div>
+</body>

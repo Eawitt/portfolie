@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="myStyle.css">
+</head>
+<body>
+<ul>
+ <li><a class="active" href="IndexW.html">Webteknologi</a></li>
+  <li><a href="Indexp.html">Om mig</a></li>
+  <li><a href="IndexAP.html">AstroPi</a></li>
+<li><a href="indexIS.html">IT-sikkerhed</a></li>
+    <li><a href="index.html">Hjem</a></li> 
+    <li><a href="indexSL.html">Spil og Leg</a></li> 
+    <li><a href="indexDB.html">Databaser</a></li>
+</ul> 
+<div class="header">
+    <h1>Spil og Leg</h1> </div> 
+<div class="box3">
+<h4>Vores spil</h4>
+<p2>I spil og leg arbejdede vi med følgende case: <i>"Dansk idrætsforbund er stærkt bekymret over en ny undersøgelse, der viser, at 3 ud af 4 børn og unge bevæger sig for lidt i hverdagen.<br> De mistænker at for meget stillesiddende skærmtid spiller en rolle og vil derfor gerne motivere unge mennesker til at bevæge sig mere og til at være mere sociale, når de spiller computerspil. Derfor har de besluttet sig for at udvikle et spil."</i><br><br> Vores opgave var altså at udvikle et spil som ville få unge mere aktive. Vi valgte at lave det kendte spil snake, hvor man i stedet for at bruge tastaturet skulle være to og to om at hoppe rundt på nogle pile på gulvet for at kunne dreje slangen.<br> Dette betød at vores brugere både skulle kommunikere med hinanden og samtidig også få<br> pulsen bare en smule op.<br> <br> Hvis du selv føler for at prøve spillet så er der et link her, hvor man også har adgang til koden. <a href="https://editor.p5js.org/Ea00/sketches/aMr_rA-A_">Klik her</a> <br> For den bedste spiloplevelse anbefaler vi at du tager fat på en i din familie eller en af dine venner) og sætter en MakeyMakey op til computeren også.</p2>
+</div>
+
+<div class="box4">
+<h4>Biledere af spillet</h4>
+<p2> Første billede til venstre viser selve setupet af vores spil. På gulvet ser man de tre sølvpapirs plader som funger som vores piletaster, ovenover dem står der deres korresponderende tast. Altså "Venstre", "Højre", "op" og "ned". På billedet til højre ses vores to skønne testpersoner Idil og Sara som er i gang med at spille vores spil. De var faktisk nogle af vores bedste testpersoner da de nåede længst i spillet. </p2>
+<div class="img1"><img src="MakeyMakey.jpg" width="250"></div>
+    <div class="img2"><img src="idilogsara.jpg" width="250"></div></div>
+<div class="box11">
+<h4>Gennemgang af kodestykker</h4>
+    <p2>Det stykke kodestump man kan se lige nedenunder til venstre viser <br> hvordan snake reagerer på at man trykker på de forskellige piletaster. <br> Først laver man en function som hedder "KeyPressed". <br> Når man presser en piletast vil funktionen blive sat i gang og <br>følgende vil ske:<br> <b>Linje 9:</b> Hvis det er left-arrow key der bliver presset og snake ikke allerede drejer til højre,<br> så skal den ændre retning mod venstre. Derefter når der bliver skrevet "Break" skal den <br>stoppe med at få snake til at dreje til venstre altså skal den bare opretholde den kurs den <br>nu har sådan så man senere kan dreje snake igen uden den konsekvent drejer til venstre.<br> Det samme er gældende for alle de andre arrowkeys, bare med den ændring at hvis <br> slangen allerede kører den modsatte retning af hvad end man vil <br>have den til at dreje så kan den ikke. </p2>  
+<div class="img6"> <img src="Snakecor.jpg" width="225"></div> 
+   <p3>Nedenunder til højre ser du koden som var den der fik vores snake til at kunne dø. Ved linje 57 ser man at vi <br>laver en function som vi kalder deathloop. Linje 58 sætter variablen til i=0 og tjekker derefter<br> hvorvidt i er større end en anden variable som er numsegment, numsegment er desuden <br> længden på vores slange, hvis den er det skal der ligges 1 til i, dette bliver altså til punktet lige <br>foran slangen. Derefter kører den et if statement. Den siger at hvis det i'te y-kordinat på slangen <br>er mindre end en 1 eller større end 400 så skal den kører funktionen death. <br>Det samme kommer itl at gælde for x-kordinatterne (se linje 63). Ved linje 66 siger at hvis det 0'te  <br> x-kordinat er ligmed det i'te x-kordinat+2 og det samme er gældende for y-kordinattet så skal den <br>også kører funktionen death. Med andre ord = røre slangens hoved sig selv skal den kører <br>funktionen death. <br> <b>Function death</b><br> Ved function death ser vi at den første linje siger den skal tegne en rektangel som fylder hele <br>skærmen og den så derefter skal skrive "Game over" ovenpå. Til sidst siger den noloop - altså skal <br>den ikke kører denne funktion igen og man har hermed tabt spillet. </p3>
+    <div class="img7"><img src="D%C3%B8dsnake.jpg" width="400"></div>
+</div>
+<div class="box12">
+    <h4>Flowchart over Snakes bevægelse</h4>
+    <div class="img3"> <img src="snakeflowchart.jpg" width="300"></div>
+    <p4> Ovenover ser man et flowchart der viser hvordan programmet fungerer når snake bevæger sig. Først tegner den slangen for så derefter at spørge om slangen rør sig selv eller muren, gør den ikke det skal den fortsætte til at spørge om den spiser en frugt. Hvis dette er tilfældet skal den gøre slangen en længerer, og hvis den ikke gør det skal beholde frugtens kordinat.  </p4>
+    </div>
+<div class="box13">
+ <h4>Forslag til forbedringer</h4> 
+    <p2>Til slut i forløbet efter vores spil var blevet testet lavede vi en brugerundersøgelse for at finde ud af hvad vi kunne forbedre ved vores spil. Vi fik følgende forslag: <br><br> <b>1.</b> Større skærm så det var nemmere at se snake<br><br><b>2.</b> Forskellige sværhedsgrader så man kunne ændre tempoet på snake.<br> <br> <b>3.</b> Et point system så man kan se hvor mange frugter man har spist og dermed lave konkurrence mellem sine venner.</p2>
+    </div>
+</body>

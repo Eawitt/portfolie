@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="myStyle.css">
+</head>
+<body> 
+<ul>
+ <li><a class="active" href="IndexW.html">Webteknologi</a></li>
+  <li><a href="Indexp.html">Om mig</a></li>
+  <li><a href="IndexAP.html">AstroPi</a></li>
+<li><a href="indexIS.html">IT-sikkerhed</a></li>
+    <li><a href="index.html">Hjem</a></li>
+    <li><a href="indexSL.html">Spil og Leg</a></li> 
+    <li><a href="indexDB.html">Databaser</a></li>
+    
+</ul>
+<div class="header"> 
+<h1>AstroPi</h1>
+</div>
+<div class="box3"> 
+<h4>Introduktion</h4>
+<p2>ESA har placeret to RaspberryPi microcomputere om bord på den internationale <br>rumstation ISS. Computerne er udstyret med sensorer og to kameraer, et som peger ind i rumstationen og et som peger mod Jorden. I dette forløb arbejdede vi med pythonprogramering som vi skulle bruge til at kode et lille forsøg op til de RaspberryPi som er på ISS.</p2>
+<h4>Projektbeskrivelse:</h4>
+<p2>I dette projekt ville  vi kode et program til AstroPi som skulle kunne finde lokationen for<br> ISS for at se om den bevægede sig i en oval, ligesom jordens bane om solen samt hvornår ISS har sit højeste og laveste acceleration. 
+Koordinaterne fandtes ved hjælp biblioteket ”Orbit”, der indeholder lokationen for ISS i det nuværende tidspunkt. Samtidig med at den printede tiden, printede den også det tidspunkt koordinaterne blev taget i. <br>Til accelerationen brugte vi sensoren ”Accelerometer” til at finde ud af ISS acceleration. <br>Dog målte vi kun accelerationen for AstroPien på jorden så vi rystede selv AstroPien <br> for at få noget acceleration. 
+</p2>
+</div>
+<div class="img5"><img src="ISS.jpg" width="685.5"></div>
+<div class="box5"> 
+    <h4>Vores kode</h4>
+
+<p2>Her er vores kode:</p2> <a href="Main.py" download> <p2>Klik her</p2></a>
+<p2><br>Før man går i gang med at kode noget ved hjælp af pyhton som skal bruges til AstroPi, skal man bruge nogle biblioteker og disse skal man kalde på. Dette gøres ved hjælp af "import" og i vores tilfælde så noget af det således ud: <br><br>import datetime <br>
+from distutils.util import execute <br>
+from threading import Timer <br>
+import threading <br>
+from math import sin,cos,sqrt <br>
+from sense_hat import SenseHat <br>
+import time <br> 
+from orbit import ISS <br> 
+from time import sleep <br> <br>
+I disse linjer af kode importeres der blandt andet det bibliotek "orbit" som giver os <br>ISS lokation, biblioteket "math" gør det muligt for os senere hend at bruge sin, cos og sqrt <br>til at behandle dataen og selve biblioteket "sense_hat" var det som vi brugte til overhovedet at bruge vores censorer. <br> <br>
+
+Når bibliotekkerne først var importeret kunne man begynde at bruge det man har <br>importeret, eks: <br><br>
+def loc(): <br>
+    location = ISS.coordinates() # Equivalent to ISS.at(timescale.now()).subpoint() <br>
+    print(f"X: {location.latitude.degrees}")<br>
+    print(f"Y: {location.longitude.degrees}")<br>
+    print(f"Z: {location.elevation.m}")<br>
+    return tid(),location.latitude.degrees,location.longitude.degrees,location.elevation.m, acc()<br><br>
+    
+    Her er der defineret en funktion kaldet loc for location. Inden i den funktion bruges det før importerede bibliotek "orbit" til at få latitude, longtitude og elevation. Alt dette data blev taget placeret i et dokument og gentaget hvert 5. sekund. Dette gjordes vi med "return tid" som vi også havde imporeret. 
+    </p2>
+</div>
+
+<div class="box6"> <h4>Data opsamling</h4>
+<p2>Når man skal opsamle data i en RaspberryPi er det ikke lige så simpelt som bare at trykke print. Først oprettede vi filen og fik den til at oprette koloner der var passende til det data vi ville opsamle: <br>
+with open ("dataSAFE.csv", "w") as file: <br>
+file.write("time , latitude , longitude , elevation, acceleration \n") <br><br>
+Første linje laver filen og kalder den "dataSAFE.csv", "W" betyder at den skal overwrite alt hvad der før stod i filen og i stedet for skrive time, latitude, longitude, elevation og acceleration i hver deres kolone. Til sidst laver den et linje skift med "\n"<br><br>
+Når man så har kørt sit forsøg, så vil man gerne have at den skal printe ens data ind i en fil så man kan kigge på det alt sammen på en gang. <br> Dette gjorde vi med kodelinjen: <br><br>
+i=0 <br>
+while i&lt12:<br> 
+    with open ("dataSAFE.csv","a") as file:<br>
+        file.write("%s,%s,%s,%s,%s \n" % (loc()))<br>
+    print('gemmer')<br>
+    sleep(5)<br>
+    i+=1<br><br>
+Først og fremmest satte vi i=0 for at kunne specificere hvor mange gange den skulle srkive målingerne til.<br>Ved brug af while i&lt12 fik vi RaspberryPi'en til kun at gøre det så længe i var mindre end 12. Hvergang den havde gennemført delen med at smide data ind i filen lagde den 1 til i "1+=1" dette gjorde at den på et tidspunkt ville nå 12 og at koden så ville stoppe. Lad os nu tage den del af koden som faktisk smider dataen ind i koloner: <br><br>
+with open ("dataSAFE.csv","a") as file:<br>
+        file.write("%s,%s,%s,%s,%s \n" % (loc()))<br>
+    print('gemmer')<br>
+    sleep(5)<br><br>
+    Linje 1 og 2 specificerer hvilken fil den skal gøre det i samt "a" som betyder den skal gøre det under det allerførste vi skrev ind i listen. "%s" specificerer hvor mange koloner den skal fylde i og "(loc)" var for at specificere helt præcist hvad der skullle ind i filen, nemlig vores funktion loc (location). <br>   </p2>
+</div>
+<div class="box7">
+<h4>Flowchart</h4> 
+<p2>Flowchart over overførsel af data til csv fil:</p2>
+<div class="img3"><img src="flow2.jpg" height="475"></div>
+</div>
+<div class="box8"> 
+<h4>Data efter måling af ISS lokation</h4>
+<p>Vi målte som sagt både accelerationen og lokationen. Men fordi accelerationen er <br>afhængig af selve AstroPi'en så ser vi bort fra denne måling da det bare var os som <br>bevægede den. Lokationen er derimod fra bibliotekket orbit og er derfor givet ud fra ISS lokation. Ud af dette fik vi den følgende data:</p>
+<img src="Data.jpg" height="338">
+<p>latitude og longitude er selve ISS lokationer i dens cirkel bane.  Elevation er her den mere interessante at kigge på da den siger noget om hvorvidt ISS distance fra jorden ændre sig <br>som var det vi gerne ville undersøge. Man kan se i elevation kolonen at distancen til jorden falder, hvilket også passede overens med de observationer vi havde gjort ud fra den data NASA selv giver os. Ud fra longitute og latitude kunne vi finde ud af hvor på jorden den <br>var når den faldt, dermed bunden af dens ellipse formede bane (der hvor ISS er tættest på jorden). Ud fra første række kordinatter fandt vi det til at være omkring sydeuropa, helt specifikt Guyana. Dog kørte vi ikke forsøget i hele ISS tid rundt om jorden (cirka 1.5 time) <br>så vi kan ikke vide om den ville synke yderligere end den sidste række vi fik af kordinater.</p>
+</div>
+</body>
+</html>
